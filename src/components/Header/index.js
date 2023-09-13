@@ -23,6 +23,7 @@ const Header = () => {
         <div className="logo">
           <Link to="#">
             <img src={Logo1} alt="" />
+            <h2>Kopernik Pizza</h2>
           </Link>
         </div>
         <ul>
