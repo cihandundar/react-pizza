@@ -12,7 +12,6 @@ const PizzaItem = () => {
     dispatch(fetchPizza());
   }, [dispatch]);
 
-  // Verileri "publisher" değerine göre filtrele
   const filterByPublisher = (publisher) => {
     const filteredData = item.filter(
       (content) => content.publisher === publisher
@@ -21,14 +20,14 @@ const PizzaItem = () => {
   };
 
   const uniquePublishers = [
-    ...new Set(item?.map((content) => content.publisher)),
+    ...new Set(item?.map((content) => content?.publisher)),
   ];
   uniquePublishers.unshift("All");
 
   return (
     <section>
       <div className="filter">
-        {uniquePublishers.map((publisher) => (
+        {uniquePublishers?.map((publisher) => (
           <button key={publisher} onClick={() => filterByPublisher(publisher)}>
             {publisher}
           </button>
@@ -47,6 +46,7 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
+                  <button className="card__btn">Add to Cart</button>
                 </li>
               ))
             : item?.map((content) => (
@@ -57,6 +57,7 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
+                  <button className="card__btn">Add to Cart</button>
                 </li>
               ))}
         </ul>
