@@ -1,4 +1,5 @@
 .header {
+  padding: 20px 0;
   &__container {
     max-width: 1200px;
     margin: 0 auto;
@@ -9,8 +10,14 @@
 }
 
 .logo {
+  > a {
+    display: flex;
+    align-items: center;
+  }
   img {
+    margin-right: 15px;
     max-width: 100px;
+    border-radius: 50%;
   }
 }
 
