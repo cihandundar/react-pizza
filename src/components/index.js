@@ -1,3 +1,3 @@
 import Header from "./Header";
-
-export { Header };
+import PizzaItem from "./PizzaItem";
+export { Header, PizzaItem };
