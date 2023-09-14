@@ -4,12 +4,15 @@ import {
   decreaseCart,
   remove,
 } from "features/cart/cartSlice";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Kopernik from "../../assets/images/kopernik.gif";
 
 const Cart = () => {
   const items = useSelector((state) => state?.cart.cartItems);
   const dispatch = useDispatch();
+  const [isCheckoutPopupOpen, setIsCheckoutPopupOpen] = useState(false);
 
   const handleRemove = (info) => {
     dispatch(remove(info));
@@ -25,11 +28,23 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  const handleCheckout = () => {
+    handleClearCart(); // Cart'ı sıfırla
+    setIsCheckoutPopupOpen(true);
+  };
+
+  const closeCheckoutPopup = () => {
+    setIsCheckoutPopupOpen(false);
+  };
+
   return (
     <div>
       {items.length === 0 ? (
         <div className="empty">
-          <h4>Your cart is empty. Start shopping now!</h4>
+          <img src={Kopernik} alt="" />
+          <h3>
+            Your cart is empty. <Link to="/">Start shopping now!</Link>
+          </h3>
         </div>
       ) : (
         <ul className="row">
@@ -53,10 +68,24 @@ const Cart = () => {
               </button>
             </li>
           ))}
-          <button className="clear" onClick={() => handleClearCart()}>
-            Clear Cart
-          </button>
+          <div className="cart__btn">
+            <button className="clear" onClick={() => handleClearCart()}>
+              Clear Cart
+            </button>
+            <button className="check" onClick={() => handleCheckout()}>
+              Check out
+            </button>
+          </div>
         </ul>
+      )}
+      {isCheckoutPopupOpen && (
+        <div className="checkout-popup">
+          <h2>Checkout Successful</h2>
+          <p>Your order has been placed.</p>
+          <button className="popup-btn" onClick={() => closeCheckoutPopup()}>
+            Close
+          </button>
+        </div>
       )}
     </div>
   );
