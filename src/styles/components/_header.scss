@@ -6,6 +6,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include breakpoint(sm) {
+      flex-direction: column;
+    }
+    @include breakpoint(lg) {
+      max-width: 900px;
+    }
+    @include breakpoint(md) {
+      max-width: 700px;
+    }
   }
 }
 
@@ -24,6 +33,9 @@
 ul {
   display: flex;
   align-items: center;
+  @include breakpoint(l) {
+    margin-top: 10px;
+  }
 }
 
 li {

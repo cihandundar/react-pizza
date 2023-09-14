@@ -14,11 +14,10 @@
 .left {
   > img {
     width: 600px;
-    height: 600px;
     object-fit: contain;
-    border-radius: 50%;
-    @include breakpoint(md) {
+    @include breakpoint(xs) {
       width: 100%;
+      padding: 20px;
     }
   }
 }
