@@ -30,9 +30,6 @@ const Header = () => {
           {user ? (
             <ul>
               <li>
-                <h4>Hi {user.displayName}</h4>
-              </li>
-              <li>
                 <AiOutlineHome /> <Link to="/">Home</Link>
               </li>
               <li>
