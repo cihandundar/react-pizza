@@ -26,6 +26,12 @@ ul {
   align-items: center;
 }
 
+li {
+  > a {
+    font-weight: bold;
+  }
+}
+
 li:not(:last-child) {
   margin-right: 30px;
 }
