@@ -70,17 +70,23 @@
   margin-top: 10px;
 }
 
+.popup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+}
+
 .checkout-popup {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: orange;
+  border-radius: 10px;
   width: 400px;
   height: 255px;
-  position: absolute;
-  top: 19%;
-  left: 37%;
 }
 .popup-btn {
   margin-top: 10px;
