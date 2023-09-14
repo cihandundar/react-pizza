@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 0;
+  position: relative;
 }
 
 .cart {
@@ -31,12 +32,27 @@
       margin-inline: 5px;
     }
   }
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    > button {
+      background-color: orange;
+      font-weight: bold;
+      padding: 0.5px 30px;
+      cursor: pointer;
+    }
+  }
 }
 
 .empty {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  > h3 {
+    margin-top: 10px;
+  }
 }
 
 .remove {
@@ -52,4 +68,22 @@
   padding: 0.5px 30px;
   cursor: pointer;
   margin-top: 10px;
+}
+
+.checkout-popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: orange;
+  width: 400px;
+  height: 255px;
+  position: absolute;
+  top: 19%;
+  left: 37%;
+}
+.popup-btn {
+  margin-top: 10px;
+  padding: 5px 30px;
+  cursor: pointer;
 }
