@@ -21,6 +21,7 @@
   align-items: center;
   @include breakpoint(sm) {
     flex-direction: column;
+    margin-top: 30px;
   }
   &__img {
     img {
@@ -33,6 +34,10 @@
   &__quantity {
     display: flex;
     margin-inline: 10px;
+    @include breakpoint(sm) {
+      margin-inline: 0px;
+      margin-block: 10px;
+    }
     > button {
       cursor: pointer;
       width: 20px;
@@ -47,11 +52,19 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include breakpoint(sm) {
+      flex-direction: column;
+      padding: 20px;
+    }
     > button {
       background-color: orange;
       font-weight: bold;
       padding: 0.5px 30px;
       cursor: pointer;
+      @include breakpoint(sm) {
+        margin-top: 10px;
+        padding: 10px 30px;
+      }
     }
   }
 }
