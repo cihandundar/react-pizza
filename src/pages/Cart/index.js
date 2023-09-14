@@ -7,7 +7,6 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Kopernik from "../../assets/images/kopernik.gif";
 
 const Cart = () => {
   const items = useSelector((state) => state?.cart.cartItems);
@@ -41,7 +40,6 @@ const Cart = () => {
     <div>
       {items.length === 0 ? (
         <div className="empty">
-          <img src={Kopernik} alt="" />
           <h3>
             Your cart is empty. <Link to="/">Start shopping now!</Link>
           </h3>
@@ -79,12 +77,14 @@ const Cart = () => {
         </ul>
       )}
       {isCheckoutPopupOpen && (
-        <div className="checkout-popup">
-          <h2>Checkout Successful</h2>
-          <p>Your order has been placed.</p>
-          <button className="popup-btn" onClick={() => closeCheckoutPopup()}>
-            Close
-          </button>
+        <div className="popup">
+          <div className="checkout-popup">
+            <h2>Checkout Successful</h2>
+            <p>Your order has been placed.</p>
+            <button className="popup-btn" onClick={() => closeCheckoutPopup()}>
+              Close
+            </button>
+          </div>
         </div>
       )}
     </div>
