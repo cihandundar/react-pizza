@@ -28,7 +28,7 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    handleClearCart(); // Cart'ı sıfırla
+    handleClearCart();
     setIsCheckoutPopupOpen(true);
   };
 
