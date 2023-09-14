@@ -51,7 +51,12 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
-                  <button className="card__btn">Add to Cart</button>
+                  <button
+                    onClick={() => handleAdd(content)}
+                    className="card__btn"
+                  >
+                    Add to Cart
+                  </button>
                 </li>
               ))
             : item?.map((content) => (
