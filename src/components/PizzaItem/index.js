@@ -1,3 +1,4 @@
+import { addToCart } from "features/cart/cartSlice";
 import { fetchPizza } from "features/pizza/pizzaSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +24,10 @@ const PizzaItem = () => {
     ...new Set(item?.map((content) => content?.publisher)),
   ];
   uniquePublishers.unshift("All");
+
+  const handleAdd = (item) => {
+    dispatch(addToCart(item));
+  };
 
   return (
     <section>
@@ -57,7 +62,12 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
-                  <button className="card__btn">Add to Cart</button>
+                  <button
+                    onClick={() => handleAdd(content)}
+                    className="card__btn"
+                  >
+                    Add to Cart
+                  </button>
                 </li>
               ))}
         </ul>
