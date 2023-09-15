@@ -1,6 +1,8 @@
 .comments {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
