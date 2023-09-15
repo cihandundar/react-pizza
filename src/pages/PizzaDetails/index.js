@@ -18,6 +18,7 @@ const PizzaDetails = () => {
       <img src={Recep} alt="" />
       {comments?.map((comment) => (
         <div className="comments__item" key={comment?.id}>
+          <h4>{comment?.quantity}</h4>
           <h3>{comment?.description}</h3>
         </div>
       ))}
