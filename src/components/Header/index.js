@@ -5,17 +5,24 @@ import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import Logo1 from "../../assets/images/logo1.png";
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
     navigate("/login");
   };
+
+  const cartItemCount = cartItems.reduce(
+    (total, item) => total + item.cartQuantity,
+    0
+  );
 
   return (
     <header className="header">
@@ -34,6 +41,14 @@ const Header = () => {
               </li>
               <li>
                 <AiOutlineShoppingCart /> <Link to="cart">Cart</Link>
+                {cartItemCount > 0 && (
+                  <span
+                    style={{ marginLeft: "6px" }}
+                    className="cart-item-count"
+                  >
+                    {cartItemCount}
+                  </span>
+                )}
               </li>
               <li>
                 <button onClick={onLogout} className="btn">
