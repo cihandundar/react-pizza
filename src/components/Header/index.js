@@ -36,10 +36,10 @@ const Header = () => {
         <ul>
           {user ? (
             <ul>
-              <li>
+              <li className="link">
                 <AiOutlineHome /> <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="link">
                 <AiOutlineShoppingCart /> <Link to="cart">Cart</Link>
                 {cartItemCount > 0 && (
                   <span
@@ -50,7 +50,7 @@ const Header = () => {
                   </span>
                 )}
               </li>
-              <li>
+              <li className="link">
                 <button onClick={onLogout} className="btn">
                   Logout
                 </button>
@@ -58,12 +58,12 @@ const Header = () => {
             </ul>
           ) : (
             <ul>
-              <li>
+              <li className="link">
                 <Link to="/login">
                   <FaSignInAlt /> Login
                 </Link>
               </li>
-              <li>
+              <li className="link">
                 <Link to="/register">
                   <FaUser /> Register
                 </Link>
