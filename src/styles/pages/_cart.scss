@@ -23,12 +23,23 @@
     flex-direction: column;
     margin-top: 30px;
   }
+  @include breakpoint(xs) {
+    text-align: center;
+  }
   &__img {
     img {
       width: 150px;
       border-radius: 8px;
       object-fit: cover;
       margin-right: 10px;
+      @include breakpoint(sm) {
+        margin-right: 0px;
+      }
+    }
+  }
+  &__title {
+    > h3 {
+      font-size: 1rem;
     }
   }
   &__quantity {
@@ -74,6 +85,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
   > h3 {
     margin-top: 10px;
   }
