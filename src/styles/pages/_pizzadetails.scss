@@ -1,0 +1,26 @@
+.comments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  > img {
+    margin-block: 20px;
+    @include breakpoint(xs) {
+      width: 100%;
+    }
+  }
+  &__item {
+    text-align: center;
+    > h3 {
+      text-transform: capitalize;
+      @include breakpoint(xs) {
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+}
