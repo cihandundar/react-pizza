@@ -2,6 +2,7 @@ import { addToCart } from "features/cart/cartSlice";
 import { fetchPizza } from "features/pizza/pizzaSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const PizzaItem = () => {
   const [filteredItems, setFilteredItems] = useState([]);
@@ -51,6 +52,9 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
+                  <Link to={`item/${content?.id}`}>
+                    <button className="card__btn mr">Recipe</button>
+                  </Link>
                   <button
                     onClick={() => handleAdd(content)}
                     className="card__btn"
@@ -67,9 +71,12 @@ const PizzaItem = () => {
                   <div className="card__title">
                     <h4>{content?.title}</h4>
                   </div>
+                  <Link to={`item/${content?.id}`}>
+                    <button className="card__btn mr">Recipe</button>
+                  </Link>
                   <button
-                    onClick={() => handleAdd(content)}
                     className="card__btn"
+                    onClick={() => handleAdd(content)}
                   >
                     Add to Cart
                   </button>
