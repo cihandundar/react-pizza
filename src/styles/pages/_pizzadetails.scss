@@ -21,6 +21,7 @@
       text-transform: capitalize;
       @include breakpoint(xs) {
         font-weight: 300;
+        font-size: 1rem;
       }
     }
     > h4 {
