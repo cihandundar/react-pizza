@@ -1,5 +1,5 @@
 import { Header } from "components";
-import { Cart, Home, Login, Register } from "pages";
+import { Cart, Home, Login, PizzaDetails, Register } from "pages";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -14,6 +14,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/item/:id" element={<PizzaDetails />} />
       </Routes>
     </BrowserRouter>
   );
