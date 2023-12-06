@@ -24,7 +24,7 @@ const cartSlice = createSlice({
           cartQuantity: 1,
         };
         state.cartItems.push(tempProduct);
-        toast.success(`Added`);
+        toast.info(`${action.payload.title} deleted`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.id !== action.payload.id
       );
       state.cartItems = nextCartItems;
-      toast.info(` Deleted`);
+      toast.info(`${action.payload.title} deleted`);
     },
     decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
