@@ -38,6 +38,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @include breakpoint(xs) {
+    display: none;
+  }
   > button {
     background-color: orange;
     border-radius: 8px;
