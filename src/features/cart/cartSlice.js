@@ -24,7 +24,7 @@ const cartSlice = createSlice({
           cartQuantity: 1,
         };
         state.cartItems.push(tempProduct);
-        toast.info(`${action.payload.title} deleted`);
+        toast.success(`${action.payload.title} added`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
