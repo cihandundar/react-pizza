@@ -36,6 +36,16 @@ export const fetchPizzaDetailsComments = createAsyncThunk(
   }
 );
 
+export const searchPizza = createAsyncThunk(
+  "pizza/searchPizza",
+  async (searchTerm) => {
+    const response = await axios.get(
+      `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchTerm}`
+    );
+    return response.data.data.recipes;
+  }
+);
+
 export const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
@@ -73,6 +83,18 @@ export const pizzaSlice = createSlice({
     builder.addCase(fetchPizzaDetailsComments.rejected, (state, action) => {
       state.error = action.error.message;
       state.isLoading = false;
+    });
+    builder.addCase(searchPizza.pending, (state) => {
+      state.isLoading = true;
+      state.error = "";
+    });
+    builder.addCase(searchPizza.fulfilled, (state, action) => {
+      state.item = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(searchPizza.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
     });
   },
 });
